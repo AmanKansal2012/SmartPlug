@@ -1,0 +1,2 @@
+# SmartPlug
+Plugin with ease
