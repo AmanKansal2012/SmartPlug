@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "99631034535",
+    "firebase_url": "https://sunlit-arcade-279713.firebaseio.com",
+    "project_id": "sunlit-arcade-279713",
+    "storage_bucket": "sunlit-arcade-279713.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99631034535:android:4fa94e0127d83f0765ab82",
+        "android_client_info": {
+          "package_name": "com.appsbanii.iot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99631034535-uo7hsds5r83soqphu513ju9ocg622hka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE9EQHq1qyx-KefT5W88xAfbyJ_Fdgc9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99631034535-uo7hsds5r83soqphu513ju9ocg622hka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

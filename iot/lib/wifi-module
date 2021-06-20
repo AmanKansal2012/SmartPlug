@@ -1,0 +1,73 @@
+//THIS PROGRAM IS DEVELOPED BY TEAM LUMINARIES (SMART_PLUG V0.0)
+
+
+#include <FirebaseESP8266.h>
+#include <ESP8266WiFi.h>
+
+
+#define FIREBASE_HOST "sunlit-arcade-279713.firebaseio.com"                     //Your Firebase Project URL goes here without "http:" , "\" and "/"
+#define FIREBASE_AUTH "Z7z87kvYO9gPdNUMlqqvg7kJlsTjRcdVjeYkwMHR"                //Your Firebase Database Secret goes here
+
+#define WIFI_SSID "Aman Kansal"                                                 //your WiFi SSID for which yout NodeMCU connects
+#define WIFI_PASSWORD "@d1r2m3a4n5"                                            //Password of your wifi network
+#define Relay1 12 //D6
+
+// Declare the Firebase Data object in the global scope
+FirebaseData firebaseData;
+
+// Declare global variable to store value
+int val;
+
+
+void setup() {
+
+  Serial.begin(115200);
+  pinMode(Relay1,OUTPUT);                                                    //SETTING OUTPUT PIN
+  Serial.println("Serial communication started\n\n");
+
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);                                     //try to connect with wifi
+  Serial.print("Connecting to ");
+  Serial.print(WIFI_SSID);
+
+
+
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(500);
+  }
+
+
+  Serial.println();
+  Serial.print("Connected to ");
+  Serial.println(WIFI_SSID);
+  Serial.print("IP Address is : ");
+  Serial.println(WiFi.localIP());                                            //print local IP address
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);                             // connect to firebase
+
+  Firebase.reconnectWiFi(true);
+  delay(1000);
+}
+
+void loop() {
+
+
+                                                                      // Firebase Error Handling And Reading Data From Specified Path ************************************************if (Firebase.getInt(firebaseData, "S1")) {                           // On successful Read operation, function returns 1
+val = firebaseData.intData();
+if(val==1)
+     {                                                                // PLUG ON IF VALUE=1
+      digitalWrite(Relay1,LOW);
+      Serial.println("Relay 1 ON");
+    }
+    else if(val==0)                                                   // PLUG OFF IF VALUE=0
+    {
+      digitalWrite(Relay1,HIGH);
+      Serial.println("Relay 1 OFF");
+    }
+
+
+   else {
+    Serial.println(firebaseData.errorReason());
+  }
+}}
+
+
