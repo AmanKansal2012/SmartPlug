@@ -10,6 +10,3 @@ Since a large population lives in rural and semi urban localities with proper ac
 
 [![video](https://user-images.githubusercontent.com/61155876/122669827-b1be9680-d1dc-11eb-9342-6ba5d236cce7.png)](https://vimeo.com/565210578)
 
-# For more checkout the project description on devfolio
-https://devfolio.co/submissions/smart-plug-ce9b
-
